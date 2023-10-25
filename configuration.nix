@@ -35,6 +35,8 @@ in
   #emacs = callPackage ./emacs.nix { };
     imports =
     [ # Include the results of the hardware scan.
+
+      inputs.guix-overlay.overlays.default
       ./hardware-configuration.nix
     ];
 
@@ -52,6 +54,7 @@ nix.nixPath = [
   #"nixos-config=/etc/nixos/configuration.nix"
   "/nix/var/nix/profiles/per-user/root/channels"
 ];
+nix.settings.trusted-users = [ "root" "pub" ];
   console = {
     earlySetup = true;
     font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
@@ -112,27 +115,13 @@ nix.nixPath = [
       mu
       sqlite
       jami
-      # firefox
-      # nyxt
-      # oath-toolkit
-      # libtool
-      # jami
-      # cmake
-      # gnumake
-      # gcc
-      # sakura
-      # pinentry
-      # gnupg1
+      pinentry
+      gnupg1
     ];
   };
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
   elisa
   gwenview
-  #okular
-  #oxygen
-  #khelpcenter
-  #konsole
-  #plasma-browser-integration
   print-manager
 ];
 
@@ -187,6 +176,7 @@ nix.nixPath = [
     oath-toolkit
     xclip
     xsel
+    fish
     #build
     libtool
     cmake
@@ -222,17 +212,14 @@ nix.nixPath = [
     #   alwaysEnsure = true;
     #   alwaysTangle = true;
     # })
-      tmux
+      #tmux
       dunst
       xorg.libXext xorg.libX11 xorg.libXv xorg.libXrandr zlib
       ncurses5
       stdenv.cc
-      #fish
-      #pinentry
-      #gnupg1
       dig
   ];
-
+  services.guix.enable = true;
   services.emacs.enable = true;
   services.emacs.package = pkgs.emacs29-pgtk;
 
