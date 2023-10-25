@@ -1,4 +1,5 @@
-# root flake for flake without channels, paths
+#name is a bit misleading, I am not associated to derminate sytems, it's usable for the times when your root folder paths adn channels are not very detministic.
+## root flake for flake without channels, paths
 1. backup your /etc/nixos
 2. git clone this repo to that dir
 3. cd dir && git {add, commit -m  ..} 
