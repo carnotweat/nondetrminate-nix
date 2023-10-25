@@ -36,7 +36,7 @@ in
     imports =
     [ # Include the results of the hardware scan.
 
-      inputs.guix-overlay.overlays.default
+#      inputs.guix-overlay.overlays.default
       ./hardware-configuration.nix
     ];
 
