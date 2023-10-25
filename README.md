@@ -1,0 +1,14 @@
+# root flake for flake without channels, paths
+1. backup your /etc/nixos
+2. git clone this repo to that dir
+3. cd dir && git {add, commit -m  ..} 
+4. nix flake { update,lock} [ this is same as path as channel and run the rebuild [^1] , so you can delete any channel, which is lockng your "/run/user/1000/nix-build-boot.json.drv-0" 
+5. run it again
+6. open your old and new configs in $EDITOR  and check the diff, not the diff and so long as you get it ( it fairly straightforward, at least the flakes}, you can mod it towards yours or mine or something else
+ 
+[^1]: rebuild
+```
+nixos-rebuild -I  nixpkgs=https://nix
+xos-config=./ switch
+```
+
