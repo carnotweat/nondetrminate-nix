@@ -9,10 +9,10 @@ let
           url =
             "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
         }))
+        #guix overlay 
+        inputs.guix-overlay.overlays.default
       ];
     };
-
-
 
 #let
 #  inherit (pkgs) callPackage;
@@ -36,6 +36,7 @@ in
     imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.guix-overlay.nixosModules.guix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -92,7 +93,7 @@ nix.nixPath = [
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  services.guix.enable = true;
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
