@@ -36,7 +36,7 @@ in
     imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #inputs.guix-overlay.nixosModules.guix
+      ./modules
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -93,7 +93,7 @@ nix.nixPath = [
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.guix.enable = true;
+  #services.guix.enable = true;
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
