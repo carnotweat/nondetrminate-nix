@@ -177,6 +177,9 @@ xdg = {
     #usb
     veracrypt
     cryptsetup
+    meson
+    rustc
+    swappy
     chromium
     #nyxt
     # pkgs.emacsWithPackagesFromUsePackage rec {
@@ -218,6 +221,7 @@ xdg = {
     aspell
     hunspell
     wofi
+    
     gtk-engine-murrine
     gtk_engines
     gsettings-desktop-schemas
@@ -269,6 +273,8 @@ xdg = {
       swayidle
       wl-clipboard
       wf-recorder
+      wdisplays
+      wlroots
       mako
       grim
       slurp

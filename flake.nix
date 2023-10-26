@@ -6,7 +6,7 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        # Use the flake path for the nix path
+        #hermetic - teck every input to be followed. Use the flake path for the nix path
         { nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ]; }
         ./configuration.nix
       ];
