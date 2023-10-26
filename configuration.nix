@@ -36,7 +36,7 @@ in
     imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.guix-overlay.nixosModules.guix
+      #inputs.guix-overlay.nixosModules.guix
     ];
 
   boot.loader.systemd-boot.enable = true;
