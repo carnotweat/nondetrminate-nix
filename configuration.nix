@@ -95,6 +95,7 @@ nix.nixPath = [
   services.printing.enable = true;
   #services.guix.enable = true;
   services.dbus.enable = true;
+  #services.dconf.enable = true;
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;

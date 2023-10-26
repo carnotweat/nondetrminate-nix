@@ -7,7 +7,14 @@
 5. run it again
 6. open your old and new configs in $EDITOR  and check the diff, not the diff and so long as you get it ( it fairly straightforward, at least the flakes}, you can mod it towards yours or mine or something else
 7. last and very point of writing , sharing this
-	1. this flake can't be gderived from the "nix repl" tool , so long as you get , what you eval. I ll share my repl.nix with as many detail , as can be close to general purpose, shortly.
+	1. this flake can't be derived from the "nix repl" tool , so long as you get , what you eval. I ll share my repl.nix with as many detail , as can be close to general purpose, shortly.
+### notes
+1. many and soon most configs ll be stored in /nix/store .
+   1. they are immutable and you can't mod them in dotfiles, because you found something to try
+   2. to use that new , build it with nix and then configs ll have it.
+   3. that way I can save the current state of my configs and serve /nix/store on a NAS, for my other machines. so even if one crashes or I delete everything else upon a reboot ,all states of my work are pre preserved.I may opt to serve it on a cloud.
+
+2. this config uses gtk desktop portal for wlr,xdg etc, its deprecated on nixos.
 [^1]: rebuild
 ```
 nixos-rebuild -I  nixpkgs=https://nix
