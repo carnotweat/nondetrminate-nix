@@ -15,9 +15,31 @@
    3. that way I can save the current state of my configs and serve /nix/store on a NAS, for my other machines. so even if one crashes or I delete everything else upon a reboot ,all states of my work are pre preserved.I may opt to serve it on a cloud.
 
 2. this config uses gtk desktop portal for wlr,xdg etc, its deprecated on nixos.
+3. for custom sway config -
+   1. why not wiki way
+   ```
+   environment.etc."sway".source = (pkgs.callPackage ./build-sway-config.nix { });
+
+   ```
+   as that option is already defined in sway-nix source[^2] , you can either use lib.mkforce to insist on your definition or make build-sway-config.nix a function that directly returns a string instead of using pkgs.runCommand, which wiki doesn't mention
+   ```
+   environment.etc."sway/config".text = (pkgs.callPackage ./build-sway-config.nix { });
+   ```
+   or
+   use kanshi, writetext
+   ```
+   { writeText, kanshi }:
+writeText "sway.conf" ''
+  set $mod Mod4
+  # ...
+  exec "${kanshi}/bin/kanshi"
+  # ...
+''
+```
+
 [^1]: rebuild
 ```
 nixos-rebuild -I  nixpkgs=https://nix
 xos-config=./ switch
 ```
-
+[^2]: https://discourse.nixos.org/t/can-i-configure-a-modified-sway-config/7890/2
