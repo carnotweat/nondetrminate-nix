@@ -94,6 +94,7 @@ nix.nixPath = [
   # Enable CUPS to print documents.
   services.printing.enable = true;
   #services.guix.enable = true;
+  services.dbus.enable = true;
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -163,6 +164,7 @@ xdg = {
     ];
     gtkUsePortal = true;
   };
+};
   services.xserver.displayManager.autoLogin.enable = false;
   services.xserver.displayManager.autoLogin.user = "pub";
 
