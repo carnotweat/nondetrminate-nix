@@ -99,6 +99,8 @@ nix.nixPath = [
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  hardware.opengl.driSupport32Bit = true;
+  security.polkit.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -179,8 +181,10 @@ xdg = {
     cryptsetup
     meson
     rustc
+    jq
     swappy
-    chromium
+    fish
+    #chromium
     #nyxt
     # pkgs.emacsWithPackagesFromUsePackage rec {
     #   config = let
@@ -278,7 +282,7 @@ xdg = {
       mako
       grim
       slurp
-      sakura
+      foot
       dmenu
     ];
     extraSessionCommands = ''
@@ -290,6 +294,7 @@ xdg = {
     '';
   };
   programs.waybar.enable = true;
+  programs.qt5ct.enable = true;
   qt.platformTheme = "qt5ct";
   services.pcscd.enable = true;
   # systemd.services.veradecrypt = {
