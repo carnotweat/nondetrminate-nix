@@ -36,7 +36,7 @@ in
     imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./modules
+      #./modules
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -127,13 +127,13 @@ nix.nixPath = [
     ];
   };
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-  elisa
-  gwenview
+  #elisa
+  #gwenview
   #okular
   #oxygen
   #khelpcenter
   #konsole
-  #plasma-browser-integration
+  plasma-browser-integration
   print-manager
 ];
 
@@ -154,7 +154,15 @@ nix.nixPath = [
       "${XDG_BIN_HOME}"
     ];
   };
-
+xdg = {
+  portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
+    gtkUsePortal = true;
+  };
   services.xserver.displayManager.autoLogin.enable = false;
   services.xserver.displayManager.autoLogin.user = "pub";
 
