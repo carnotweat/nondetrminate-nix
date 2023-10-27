@@ -39,7 +39,7 @@ writeText "sway.conf" ''
 # Downsides
 1. immutable configs you can't mod them and eval, without editing nix config files configuration.nix,flake.nix,home.nix and likes. Unlike dotemacs.
 2. if you want to add a package without it , add a flake , default to the the repo , some already have it .Assuming the package is opensource and you undertand how it works[^3]
-3. nix has its constraints for the properties above. This repo aims to meet those requerements.
+3. Nix also doesn't allow to nix build a repo in $HOME as root. Thats how it is .
 
 [^1]: rebuild
 ```
