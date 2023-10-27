@@ -1,5 +1,5 @@
 #name is a bit misleading, I am not associated to derminate sytems, it's usable for the times when your root folder paths adn channels are not very detministic.
-## root flake for flake without channels, paths
+## root flake for flake for paths instead of channels
 1. backup your /etc/nixos
 2. git clone this repo to that dir
 3. cd dir && git {add, commit -m  ..} 
@@ -36,6 +36,10 @@ writeText "sway.conf" ''
   # ...
 ''
 ```
+# Downsides
+1. immutable configs you can't mod them and eval, without editing nix config files configuration.nix,flake.nix,home.nix and likes. Unlike dotemacs.
+2. if you want to add a package without it , add a flake , default to the the repo , some already have it .Assuming the package is opensource and you undertand how it works[^3]
+3. nix has its constraints for the properties above. This repo aims to meet those requerements.
 
 [^1]: rebuild
 ```
@@ -43,3 +47,4 @@ nixos-rebuild -I  nixpkgs=https://nix
 xos-config=./ switch
 ```
 [^2]: https://discourse.nixos.org/t/can-i-configure-a-modified-sway-config/7890/2
+[3]: https://github.com/DCsunset/org-moderncv/releases/tag/v0.2.0
